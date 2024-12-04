@@ -17,9 +17,12 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/jobs', [JobsController::class, 'index'])->name('jobs');
-Route::get('/jobs/create', [JobsController::class, 'create'])->name('jobs.create');
+// Route::get('/jobs', [JobsController::class, 'index'])->name('jobs');
+// Route::post('/jobs', [JobsController::class, 'store'])->name('jobs.store');
+// Route::get('/jobs/create', [JobsController::class, 'create'])->name('jobs.create');
+// Route::get('/jobs/{id}', [JobsController::class, 'show'])->whereNumber('id')->name('jobs.show');
 
+Route::resource('/jobs', JobsController::class);
 Route::get('/test', function (Request $req) {
     return [
         'method' => $req->method(),
